@@ -12,4 +12,7 @@ BOOST_AUTO_TEST_CASE(checkFoldersExist){
 
     //now try create include dir on ./
     BOOST_ASSERT(genF.generateIncludesDir()==true);
+
+    //now try create src dir on ./
+    BOOST_ASSERT(genF.generateSrcDir()==true);
 }

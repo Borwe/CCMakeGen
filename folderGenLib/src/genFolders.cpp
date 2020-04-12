@@ -26,6 +26,22 @@ bool GenFolders::generateIncludesDir(){
     return false;
 }
 
+bool GenFolders::generateSrcDir(){
+    //if src file aready exists, then return true
+    if(this->srcDirExists()){
+        return true;
+    }
+    //otherwise, if location actually exists
+    //but srcc file doesn't
+    //then go ahead and create it
+    if(this->locationIsValid()){
+        boost::filesystem::path home_path_src(home_location_+"/src");
+        boost::filesystem::create_directory(home_path_src);
+        return true;
+    }
+    return false;
+}
+
 bool GenFolders::locationIsValid(){
     //check if file given is even a location or not
     boost::filesystem::path dir(this->home_location_);
@@ -41,6 +57,18 @@ bool GenFolders::includesDirExists(){
         //or not if so, then return true, otherwise just fail
         std::string includes_dir=this->home_location_+"/include";
         if(boost::filesystem::is_directory(boost::filesystem::path(includes_dir))){
+            return true;
+        }
+    }
+    return false;
+}
+
+bool GenFolders::srcDirExists(){
+    if(locationIsValid()){
+        //now check if it contains a src directory inside it
+        //if so return true
+        std::string src_dir=this->home_location_+"/src";
+        if(boost::filesystem::is_directory(src_dir)){
             return true;
         }
     }

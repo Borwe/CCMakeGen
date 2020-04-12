@@ -26,7 +26,19 @@ public:
      */
     bool includesDirExists();
 
+    /**
+     * Returns true if succesfully created includes
+     * dir or if it already existed so no need to recreate
+     */
     bool generateIncludesDir();
+
+    /**
+     * Checks whether the src dir exists or not,
+     * returns tru if so, false if not
+     */
+    bool srcDirExists();
+
+    bool generateSrcDir();
     
     /**
      * Reports true if the home_location_ exists
