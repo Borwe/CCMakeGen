@@ -1,0 +1,10 @@
+#ignore .swp files
+*.swp
+
+#ignore youcomplete-me files
+compile_commands.json
+.ycm_extra_conf.py
+
+#ignore builds folders
+build/
+bin/
