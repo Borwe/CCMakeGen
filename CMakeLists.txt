@@ -21,7 +21,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC Boost::filesystem)
 
 #add the test part for this project with boost
 set(PROJECT_TEST ${PROJECT_NAME}-test)
-add_executable(${PROJECT_TEST} src/test.cpp)
+add_executable(${PROJECT_TEST} src/test.cpp src/genFolders.cpp)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 target_include_directories(${PROJECT_TEST} PUBLIC Boost::unit_test_framework)
 target_link_libraries(${PROJECT_TEST} PUBLIC Boost::unit_test_framework)
